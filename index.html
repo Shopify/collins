@@ -38,27 +38,21 @@ permalink: index.html
           Collins exists to drive infrastructure automation.
         </p>
         <p>
-          Someone recently asked me to describe collins in a sentence. At Tumblr, it's the infrastructure
-          source of truth and knowledge. Everything about Tumblr production environments is stored and
-          encoded in Collins, and that data is used to drive all of our automation. Sometimes people refer
-          to systems like this as a CMDB, or Configuration Management DataBase.
-        </p>
-	      <p>
-	        Collins started as a system to manage all of the physical servers, switches,
-	        racks, etc in Tumblr production environments. As we started to
-	        inventory hardware, IP addresses, software, and so on, we found the API and
-	        data gave us an excellent way to drive automation processes. Today Collins can
-	        do push button cluster (HBase, Hadoop, web, etc) deployment, drive configuration
-	        generation when hardware cluster topologies change, drive infrastructure updates
-	        when software configuration changes, and help manage software deploys.
-	      </p>
-        <p>
           Because of the loosely coupled design of Collins, consistently applied
 	        conventions are a system requirement. This document serves as a guide
 	        to those conventions as well as the basic core concepts of the collins system.
 	        If you're just interested in the basic howto or screenshots, click
 	        <a href="overview.html">here</a>.
         </p>
+        <p>
+          Shopify has adopted Collins, and implemented some missing parts of the stack.
+          It is part of the <a href="http://genesisstack.github.io" targt="_blank">"Genesis Stack"</a>. This site is a fork of Tumblr's documentation, as it applies to Shopify.
+
+          Eventually, we'd like contribute our changes back to Tumblr's Shopify, but maintain this fork while we develop and refine the features we are adding.
+
+          The original upstream documentation is available at <a href="http://tumblr.github.io/collins" target="_blank">Tumblr's Github.io page</a>
+        </p>
+
       </section> <!-- about -->
 
       <section id="features">
@@ -199,102 +193,6 @@ permalink: index.html
           There is a supplied init script at <code>scripts/collins.sh</code>. This is a useful starting point for running the app and is what we use to run the app in production at Tumblr. This script is also bundled by the <code>scripts/package.sh</code> script. Note that the supplied init script requires <a href="http://libslack.org/daemon/">daemon</a>.
         </p>
 
-        <h3>Authentication</h3>
-        <p>
-          By default the authentication is provided via the
-          <a href="https://github.com/tumblr/collins/blob/master/app/util/security/MockAuthenticationProvider.scala">MockAuthenticationProvider</a>
-          (set in <code>conf/application.conf</code> as <code>authentication.type=default</code>). Usernames/passwords for this provider are below.
-        </p>
-        <p>
-          You can change the auth provider by setting <code>authentication.type</code> to <code>file</code> or <code>ldap</code> in
-          <code>conf/application.conf</code>. If you set <code>authentication.type</code> to <code>file</code>, the default file used
-          is <code>conf/users.conf</code> (which can be changed by setting <code>authentication.file.userfile=/path/to/users.conf</code>).
-          The usernames/passwords/groups in the default <code>users.conf</code> file are below.
-        </p>
-<div class="accordion" id="credentials">
-  <div class="accordion-group">
-    <div class="accordion-heading">
-      <a class="accordion-toggle" data-toggle="collapse" data-parent="#credentials" href="#credentials-default">Default Devel Credentials</a>
-    </div>
-    <div id="credentials-default" class="accordion-body collapse">
-      <div class="accordion-inner">
-        <table class="table table-condensed table-hover">
-          <thead>
-            <tr>
-              <th>Username</th><th>Password</th><th>Groups</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>collins</td>
-              <td>collins</td>
-              <td>engineering,infra,ops</td>
-            </tr>
-            <tr>
-              <td>matt</td>
-              <td>foobar</td>
-              <td>engineering,management</td>
-            </tr>
-            <tr>
-              <td>test</td>
-              <td>fizz</td>
-              <td>none</td>
-            </tr>
-            <tr>
-              <td>joeengineer</td>
-              <td>flah</td>
-              <td>engineering</td>
-            </tr>
-          </tbody>
-        </table>
-      </div> <!-- accordion inner -->
-    </div> <!-- accordion-body -->
-  </div> <!-- accordion-group -->
-  <div class="accordion-group">
-    <div class="accordion-heading">
-      <a class="accordion-toggle" data-toggle="collapse" data-parent="#credentials" href="#credentials-file">Default File Credentials</a>
-    </div>
-    <div id="credentials-file" class="accordion-body collapse">
-      <div class="accordion-inner">
-        <table class="table table-condensed table-hover">
-          <thead>
-            <tr>
-              <th>Username</th><th>Password</th><th>Groups</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>collins</td>
-              <td>8vCeb3h8F863</td>
-              <td>engineering,infra,ops</td>
-            </tr>
-            <tr>
-              <td>matt</td>
-              <td>0592607689Cr</td>
-              <td>engineering,management</td>
-            </tr>
-            <tr>
-              <td>test</td>
-              <td>h2624A7WJA3y</td>
-              <td>none</td>
-            </tr>
-            <tr>
-              <td>joeengineer</td>
-              <td>4ZRl5311al77</td>
-              <td>engineering</td>
-            </tr>
-          </tbody>
-        </table>
-      </div> <!-- accordion inner -->
-    </div> <!-- accordion-body -->
-  </div> <!-- accordion-group -->
-</div> <!-- accordion -->
-        <p>
-          The script used to generate the file based passwords is available at <code>scripts/gen_passwords.sh</code>
-        </p>
-        <p>
-          There is more complete authentication configuration documentation available <a href="configuration.html#auth">here</a>
-        </p>
 	<h3>Contributing to Collins</h3>
 	<p>
 	  If you want to help develop collins, you'll need to follow the instructions in "Software Setup" above.  Then, to use your favorite IDE, follow the instructions on how to set it up using play.

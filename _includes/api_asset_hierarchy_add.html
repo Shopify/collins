@@ -1,0 +1,83 @@
+<h2>Asset Hierarchy Update</h2>
+
+<table class="table table-condensed">
+  <thead>
+    <tr><td></td><td></td></tr>
+  </thead>
+  <tbody>
+    <tr><th>Description</th><td>Create or update an Asset Hierarchy link</td></tr>
+    <tr><th>Request</th><td><code>POST /api/hierarchy/:tag </code></td></tr>
+    <tr><th>Permission</th><td>controllers.HierarchyApi.updateHierarchy</td></tr>
+    <tr>
+      <th>Parameters</th>
+      <td>
+        <table class="table table-hover table-condensed">
+          <thead>
+            <tr><td>Name</td><td>Type</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th class="inlinecode">tag</th>
+              <td>String</td>
+              <td>Tag for the parent Asset - Asset to add a child to</td>
+            </tr>
+            <tr>
+              <th class="inlinecode">child</th>
+              <td>String</td>
+              <td>Tag for the child asset</td>
+            </tr>
+            <tr>
+              <th class="inlinecode">start</th>
+              <td>Option[Integer]</td>
+              <td>Starting rack unit or blade slot for this asset</td>
+            </tr>
+            <tr>
+              <th class="inlinecode">end</th>
+              <td>Option[Integer]</td>
+              <td>Ending rack unit or blade slot for this asset</td>
+            </tr>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <th>Response Codes</th>
+      <td>
+        <table class="table-hover table-condensed">
+          <thead>
+            <tr><td>Code</td><td>Reason</td></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th class="inlinecode">201</th>
+              <td>Hierarchy succesfully updated</td>
+            </tr>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="example collins-shell">
+not yet implemented in collins shell
+</div>
+
+<div class="example curl">
+curl --basic -u collins:collins -X POST http://localhost:9000/api/asset/tumblrtag301 -d child_tag=tumblrtag400 -d start=3 -d end=5
+</div>
+
+<div class="accordion" id="asset-create-response">
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#asset-create-response" href="#asset-create-json-response">JSON Response</a>
+    </div>
+    <div id="asset-create-json-response" class="accordion-body collapse">
+      <div class="accordion-inner">
+        <pre>{
+  "status": "success:created"
+}</pre>
+      </div>
+    </div>
+  </div>
+</div> <!-- accordion -->

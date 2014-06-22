@@ -1,15 +1,32 @@
-require 'rubygems'
-require 'rake'
-require 'jekyll'
+require 'tmpdir'
+require 'fileutils'
 
+Rake::TaskManager.record_task_metadata = true
+
+root_dir          = File.dirname(File.expand_path(__FILE__))
+
+namespace :site do
+  desc "Generate and serve the site"
+  task :serve do 
+    sh "bundle exec jekyll serve --baseurl ''"
+  end
+
+end
+
+desc "Print a detailed help with usage examples"
 task :help do
-  puts("rake -T      # See available rake tasks")
-  puts("rake serve   # Serve up a local static site for testing")
+
+  help = <<-eos
+Serve the test site
+  rake site:serve
+  eos
+  puts help
+
 end
 
-task :serve do
-  # This is how github serves it: https://help.github.com/articles/using-jekyll-with-pages
-  `jekyll --auto --pygments --no-lsi --safe --serve`
+# Print the help if no arguments are given
+task :default do
+  Rake::application.options.show_tasks = :tasks  
+  Rake::application.options.show_task_pattern = //
+  Rake::application.display_tasks_and_comments
 end
-
-task :default => :help

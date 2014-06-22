@@ -1,0 +1,36 @@
+<h2>Asset Hierarchy Show Children</h2>
+
+<table class="table table-condensed">
+  <thead>
+    <tr><td></td><td></td></tr>
+  </thead>
+  <tbody>
+    <tr><th>Description</th><td>Get the children of an asset</td></tr>
+    <tr><th>Request</th><td><code>GET /api/hierarchy/:tag/children. </code></td></tr>
+    <tr>
+      <th>Parameters</th>
+      <td>
+        <table class="table table-hover table-condensed">
+          <thead>
+            <tr><td>Name</td><td>Type</td><td>Description</td></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th class="inlinecode">tag</th>
+              <td>String</td>
+              <td>Tag for Asset to get the children of.</td>
+            </tr>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="example collins-shell">
+not yet implemented in collins shell
+</div>
+
+<div class="example curl">
+curl --basic -u collins:collins -X GET http://localhost:9000/api/hierarchy/tumblrtag301/children
+</div>

@@ -42,6 +42,10 @@ layout: default
             <li><a href="#api-mgmt-provision-prof-section"><i class="icon-chevron-right cr-dim"></i> Provision Profiles</a></li>
           </ul>
         </li>
+        <li><a href="#asset-hierarchy"><i class="icon-chevron-right"></i> Asset Hierarchy API</a>
+          <ul class="nav nav-list">
+          </ul>
+        </li>
         <li><a href="#asset-log"><i class="icon-chevron-right"></i> Asset Log API</a>
           <ul class="nav nav-list">
             <li><a href="#api-log-create-section"><i class="icon-chevron-right cr-dim"></i> Create</a></li>
@@ -113,6 +117,14 @@ layout: default
         </div>
         <p class="lead">Provisioning, power management, IPMI data</p>
         {% include api_assetmgmt.html %}
+      </section>
+
+      <section id="asset-hierarchy">
+        <div class="page-header">
+          <h1>Asset Hierarchy API</h1>
+        </div>
+        <p class="lead">Asset Hierarchy operations</p>
+        {% include api_asset_hierarchy.html %}
       </section>
 
       <section id="asset-log">

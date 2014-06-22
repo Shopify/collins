@@ -13,7 +13,7 @@ grab only the ones that are allocated, then check the power status of those asse
 </p>
 
 <div class="example example-command">
-<pre>collins / &gt; ls /HOSTNAME/.*blake.* | &#123;|array| array.map&#123;|a| [a.tag,a.hostname,a.status]&#125;&#125;
+<pre>collins / &gt; ls /HOSTNAME/.*collins.* | &#123;|array| array.map&#123;|a| [a.tag,a.hostname,a.status]&#125;&#125;
 collins / &gt; hosts = _
 collins / &gt; hosts.select do |host|
 collins / *   host[2] == 'Allocated'
@@ -23,7 +23,7 @@ collins / * end</pre>
 </div>
 
 <p>
-In the first line we fetch all assets with a HOSTNAME matching the regular expression <code>.*blake.*</code>.
+In the first line we fetch all assets with a HOSTNAME matching the regular expression <code>.*collins.*</code>.
 The pipe (|) in the line is pry specific and will just feed the results of the <code>ls</code> command to
 a Ruby block. We map each of the matching assets to an array which contains the tag, hostname, and status of
 the asset.
